@@ -6,6 +6,7 @@ import {
   createInitialState,
   isValidPosition,
   move,
+  rotate,
   tick
 } from "../src/core/game.js";
 
@@ -70,5 +71,22 @@ describe("Tetris game core", () => {
 
     const next = tick(state, () => 0);
     expect(next.gameOver).toBe(true);
+  });
+
+  it("rotates clockwise and counterclockwise", () => {
+    const initial = {
+      board: createEmptyBoard(),
+      currentPiece: { type: "T", rotation: 0, row: 5, col: 4 },
+      score: 0,
+      lines: 0,
+      level: 1,
+      gameOver: false
+    };
+
+    const clockwise = rotate(initial, 1);
+    expect(clockwise.currentPiece.rotation).toBe(1);
+
+    const counterclockwise = rotate(clockwise, -1);
+    expect(counterclockwise.currentPiece.rotation).toBe(0);
   });
 });

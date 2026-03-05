@@ -131,14 +131,16 @@ export function move(state, dx, dy) {
   };
 }
 
-export function rotate(state) {
+export function rotate(state, direction = 1) {
   if (state.gameOver) {
     return state;
   }
 
+  const delta = direction >= 0 ? 1 : -1;
+
   const candidate = {
     ...state.currentPiece,
-    rotation: (state.currentPiece.rotation + 1) % 4
+    rotation: (state.currentPiece.rotation + delta + 4) % 4
   };
 
   const kicks = [

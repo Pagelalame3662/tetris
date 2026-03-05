@@ -84,8 +84,11 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowDown") {
     state = tick(state);
   }
-  if (event.code === "ArrowUp") {
-    state = rotate(state);
+  if (event.code === "ArrowUp" || event.code === "KeyX") {
+    state = rotate(state, 1);
+  }
+  if (event.code === "KeyZ") {
+    state = rotate(state, -1);
   }
   if (event.code === "Space") {
     event.preventDefault();
