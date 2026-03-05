@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris - TDD Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Chakra+Petch:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="playfield-wrap">
+        <h1>TETRIS</h1>
+        <canvas id="game" width="300" height="600" aria-label="Tetris board"></canvas>
+      </section>
+
+      <aside class="hud">
+        <p class="label">State</p>
+        <p id="state" class="value">Paused</p>
+        <p class="label">Score</p>
+        <p id="score" class="value">0</p>
+        <p class="label">Lines</p>
+        <p id="lines" class="value">0</p>
+        <p class="label">Level</p>
+        <p id="level" class="value">1</p>
+
+        <button id="start">Start / Pause</button>
+
+        <div class="help">
+          <p>Left/Right: move</p>
+          <p>Up: rotate</p>
+          <p>Down: soft drop</p>
+          <p>Space: hard drop</p>
+        </div>
+      </aside>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
